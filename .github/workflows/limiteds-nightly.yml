@@ -14,6 +14,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - run: npm i node-fetch@3
+      - run: node -e "console.log('Has UNIVERSE_ID:',!!process.env.UNIVERSE_ID,'Has KEY:',!!process.env.ROBLOX_OPEN_CLOUD_KEY)"
+  env:
+    ROBLOX_OPEN_CLOUD_KEY: ${{ secrets.ROBLOX_OPEN_CLOUD_KEY }}
       - run: node update-roblox-limiteds.js
         env:
           ROBLOX_OPEN_CLOUD_KEY: ${{ secrets.ROBLOX_OPEN_CLOUD_KEY }}
